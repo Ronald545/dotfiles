@@ -1,0 +1,344 @@
+[bar/mainbar-i3]
+enable-ipc = true
+top = true
+monitor = ${env:MONITORS[0]:eDP1}
+width = 100%
+height = 23
+dpi = 192
+
+background = #1f1f1f
+foreground = #eee
+
+line-size = 1
+
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+
+margin-top = 5
+margin-left = 5
+margin-right = 5
+margin-bottom = 5
+
+separator = ""
+
+modules-right = pulseaudio network datetime battery
+modules-left = i3 cpu memory
+
+font-0 = CaskaydiaCove\ Nerd\ Font\ Mono:size=6
+font-1 = JetBrainsMono\ Nerd\ Font\ Mono:size=6
+font-2 = JetBrainsMono\ Nerd\ Font\ Mono:size=7
+font-4 = "FontAwesome:size=12;1"
+
+wm-restack = i3
+
+[colors]
+; Nord theme ============
+background = #282c34
+foreground = #abb2bf
+alert = #bd2c40
+volume-min = #a3be8c
+volume-med = #ebcb8b
+volume-max = #bf616a
+
+[module/datetime]
+type = internal/date
+interval = 1.0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+date = " %d/%m/%Y%"
+time = " %I:%M %p"
+
+label = "%date% | %time%"
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%% %time%h 
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/network]
+type = internal/network
+; Name of the network interface to display. You can get the names of the
+; interfaces on your machine with `ip link`
+; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
+interface =  wlp3s0
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices like USB network adapters have 
+; an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = #95f08b
+
+; Default: (none)
+label-disconnected = not connected
+label-disconnected-foreground = #f0978b
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 睊
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 直
+
+ramp-signal-foreground = #95f08b
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/i3]
+;https://github.com/jaagr/polybar/wiki/Module:-i3
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = " "
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000000
+label-mode-background = #FFBB00
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+; focused = Active workspace on focused monitor
+label-focused = %icon% %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = #AD69AF
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon% %name%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline =
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon% %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+; urgent = Workspace with urgency hint set
+label-urgent = %icon% %name%
+label-urgent-background = ${self.label-focused-background}
+label-urgent-foreground = #db104e
+label-urgent-padding = 2
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = muted
+label-muted-foreground = #ff0800
+label-volume-foreground = #f73416
+ramp-volume-foreground = #f73416
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-foreground = #f73416
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+label =  CPU %percentage%%
+format = <label> 
+label-foreground = #8fb1e3
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+
+label =  RAM %percentage_used%%
+format = <label>
+
+label-foreground = #8fd5e3

@@ -3,7 +3,7 @@ enable-ipc = true
 top = true
 monitor = ${env:MONITORS[0]:eDP1}
 width = 100%
-height = 27
+height = 30
 dpi = 192
 
 background = #1f1f1f
@@ -23,9 +23,6 @@ margin-bottom = 5
 
 separator = ""
 
-modules-right = pulseaudio datetime battery
-modules-left = i3 cpu memory
-
 font-0 = CaskaydiaCove\ Nerd\ Font\ Mono:size=6
 font-1 = JetBrainsMono\ Nerd\ Font\ Mono:size=6
 font-2 = JetBrainsMono\ Nerd\ Font\ Mono:size=7
@@ -33,6 +30,9 @@ font-4 = "FontAwesome:size=12;1"
 
 tray-position = right
 wm-restack = i3
+
+modules-right = pulseaudio datetime battery
+modules-left = i3 cpu memory
 
 [colors]
 ; Nord theme ============
@@ -169,7 +169,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #AD69AF
+label-focused-underline = #51f542
 label-focused-padding = 2
 
 ; Available tokens:

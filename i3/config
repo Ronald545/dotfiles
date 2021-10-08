@@ -40,7 +40,7 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 
 # start a browser session
-bindsym $mod+Shift+Return exec "GTK_THEME=Adwaita:dark chromium"
+bindsym $mod+Shift+Return exec chromium
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -189,7 +189,7 @@ bindsym $mod+Shift+space exec "rofi -show run"
 bindsym $mod+ctrl+space exec "rofi -show filebrowser"
 
 # Screenshots
-bindsym $mod+Print exec --no-startup-id "GTK_THEME=Adwaita:dark xfce4-screenshooter" 
+bindsym $mod+Print exec --no-startup-id xfce4-screenshooter 
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
@@ -197,17 +197,17 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewi
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # ibus input method
-exec_always --no-startup-id "GTK_THEME=Adwaita:dark ibus-daemon --xim -d"
+exec_always --no-startup-id ibus-daemon --xim -d
 exec_always --no-startup-id source /home/ronald/.profile
 
 # apps
-bindsym Shift+Ctrl+S exec --no-startup-id "GTK_THEME=Adwaita:dark xfce4-settings-manager"
-bindsym Shift+Ctrl+O exec --no-startup-id "GTK_THEME=Adwaita:dark libreoffice"
-bindsym Shift+Ctrl+D exec --no-startup-id "GTK_THEME=Adwaita:dark Discord"
-bindsym Shift+Ctrl+M exec --no-startup-id "GTK_THEME=Adwaita:dark npm start --prefix=/home/ronald/.apps/caprine"
-bindsym Shift+Ctrl+T exec --no-startup-id "GTK_THEME=Adwaita:dark telegram-desktop"
-bindsym Shift+Ctrl+W exec --no-startup-id "GTK_THEME=Adwaita:dark npm start --prefix=/home/ronald/.apps/whatsdesk"
-bindsym Shift+Ctrl+F exec --no-startup-id "GTK_THEME=Adwaita:dark thunar"
+bindsym Shift+Ctrl+S exec --no-startup-id xfce4-settings-manager
+bindsym Shift+Ctrl+O exec --no-startup-id libreoffice
+bindsym Shift+Ctrl+D exec --no-startup-id Discord
+bindsym Shift+Ctrl+M exec --no-startup-id "npm start --prefix=/home/ronald/.apps/caprine"
+bindsym Shift+Ctrl+T exec --no-startup-id telegram-desktop
+bindsym Shift+Ctrl+W exec --no-startup-id "npm start --prefix=/home/ronald/.apps/whatsdesk"
+bindsym Shift+Ctrl+F exec --no-startup-id "thunar"
 bindsym Shift+Ctrl+Z exec --no-startup-id "zoom"
 
 # brightness control
@@ -215,4 +215,4 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # network manager
-exec_always --no-startup-id "GTK_THEME=Adwaita:dark nm-applet"
+exec_always --no-startup-id "nm-applet"

@@ -6,7 +6,7 @@ width = 100%
 height = 30
 dpi = 192
 
-background = #1f1f1f
+background = #3b4252
 foreground = #eee
 
 line-size = 1
@@ -169,7 +169,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #51f542
+label-focused-underline = #03b1fc
 label-focused-padding = 2
 
 ; Available tokens:
@@ -221,14 +221,14 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = muted
-label-muted-foreground = #ff0800
-label-volume-foreground = #f73416
-ramp-volume-foreground = #f73416
+label-muted-foreground = #bf616a
+label-volume-foreground = #bf616a
+ramp-volume-foreground = #bf616a
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-foreground = #f73416
+ramp-foreground = #bf616a
 [module/cpu]
 type = internal/cpu
 

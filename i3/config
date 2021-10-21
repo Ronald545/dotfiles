@@ -216,3 +216,6 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # network manager
 exec_always --no-startup-id "nm-applet"
+
+# compositor
+exec_always --no-startup-id "picom"

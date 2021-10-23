@@ -13,8 +13,8 @@ line-size = 1
 
 padding-left = 0
 padding-right = 0
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 0
+module-margin-right = 2
 
 margin-top = 5
 margin-left = 5
@@ -32,7 +32,8 @@ tray-position = right
 wm-restack = i3
 
 modules-right = pulseaudio datetime battery
-modules-left = i3 cpu memory
+modules-center = i3
+modules-left = poweroff firefox term settings cpu memory
 
 [colors]
 ; Nord theme ============
@@ -263,3 +264,51 @@ format = <label>
 
 label-foreground = #8fd5e3
 
+
+[module/poweroff]
+type = custom/text
+
+; Label
+content            = 
+content-background = #5e81ac
+content-foreground = #d8dee9
+content-padding    = 2
+
+; Mouse click
+click-left = i3 exit
+
+[module/firefox]
+type = custom/text
+
+; Label
+content = 
+content-background = #88c0d0
+content-foreground = #4c566a
+content-padding    = 2
+
+; Mouse click
+click-left = firefox
+
+[module/settings]
+type = custom/text
+
+; Label
+content = 
+content-background = #88c0d0
+content-foreground = #4c566a
+content-padding    = 2
+
+; Mouse click
+click-left = xfce4-settings-manager
+
+[module/term]
+type = custom/text
+
+; Label
+content            = 
+content-background = #5e81ac
+content-foreground = #d8dee9
+content-padding    = 2
+
+; Mouse click
+click-left = kitty

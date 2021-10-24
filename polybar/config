@@ -6,15 +6,15 @@ width = 100%
 height = 30
 dpi = 192
 
-background = #1f1f1f
+background = #3b4252
 foreground = #eee
 
 line-size = 1
 
 padding-left = 0
 padding-right = 0
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 0
+module-margin-right = 2
 
 margin-top = 5
 margin-left = 5
@@ -32,7 +32,8 @@ tray-position = right
 wm-restack = i3
 
 modules-right = pulseaudio datetime battery
-modules-left = i3 cpu memory
+modules-center = i3
+modules-left = poweroff firefox term settings cpu memory
 
 [colors]
 ; Nord theme ============
@@ -54,6 +55,7 @@ date = " %d/%m/%Y%"
 time = " %I:%M %p"
 
 label = "%date% | %time%"
+label-foreground = #ebcb8b
 
 [module/battery]
 type = internal/battery
@@ -61,6 +63,7 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
+label-charging-foreground = #a3be8c
 format-full = <ramp-capacity> <label-full>
 
 label-charging = %percentage%% 
@@ -71,10 +74,13 @@ ramp-capacity-1 = 
 ramp-capacity-1-foreground = #ffa900
 ramp-capacity-2 = 
 ramp-capacity-3 = 
+ramp-capacity-3-foreground = #a3be8c
 ramp-capacity-4 = 
+ramp-capacity-4-foreground = #a3be8c
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-foreground = #a3be8c
 bar-capacity-fill = █
 bar-capacity-fill-foreground = #ddffffff
 bar-capacity-fill-font = 3
@@ -88,6 +94,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
+
 
 [module/i3]
 ;https://github.com/jaagr/polybar/wiki/Module:-i3
@@ -169,7 +176,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #51f542
+label-focused-underline = #03b1fc
 label-focused-padding = 2
 
 ; Available tokens:
@@ -198,7 +205,7 @@ label-visible-padding = 2
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = #db104e
+label-urgent-foreground = #db46c0
 label-urgent-padding = 2
 
 format-foreground = ${colors.foreground}
@@ -221,14 +228,14 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = muted
-label-muted-foreground = #ff0800
-label-volume-foreground = #f73416
-ramp-volume-foreground = #f73416
+label-muted-foreground = #bf616a
+label-volume-foreground = #bf616a
+ramp-volume-foreground = #bf616a
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-foreground = #f73416
+ramp-foreground = #bf616a
 [module/cpu]
 type = internal/cpu
 
@@ -257,3 +264,51 @@ format = <label>
 
 label-foreground = #8fd5e3
 
+
+[module/poweroff]
+type = custom/text
+
+; Label
+content            = 
+content-background = #5e81ac
+content-foreground = #d8dee9
+content-padding    = 2
+
+; Mouse click
+click-left = i3 exit
+
+[module/firefox]
+type = custom/text
+
+; Label
+content = 
+content-background = #88c0d0
+content-foreground = #4c566a
+content-padding    = 2
+
+; Mouse click
+click-left = firefox
+
+[module/settings]
+type = custom/text
+
+; Label
+content = 
+content-background = #88c0d0
+content-foreground = #4c566a
+content-padding    = 2
+
+; Mouse click
+click-left = xfce4-settings-manager
+
+[module/term]
+type = custom/text
+
+; Label
+content            = 
+content-background = #5e81ac
+content-foreground = #d8dee9
+content-padding    = 2
+
+; Mouse click
+click-left = kitty

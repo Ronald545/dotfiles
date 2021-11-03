@@ -10,7 +10,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # install zsh syntax highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-
 # remember to update your zshrc
 
 # update theme: ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -20,3 +19,4 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # zsh-syntax-highlighting 
 # ...
 # )
+echo "zsh plugins installed, remember to update ~/.zshrc"

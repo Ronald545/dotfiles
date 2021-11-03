@@ -12,3 +12,4 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # then run :CHADdeps
 
 # NOTE: COC uses nodejs so have that installed aswell
+echo "vim-plug installed, remember to copy the config file into ~/.config and run :PlugInstall"

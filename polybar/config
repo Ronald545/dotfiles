@@ -97,52 +97,22 @@ animation-charging-framerate = 750
 
 
 [module/i3]
-;https://github.com/jaagr/polybar/wiki/Module:-i3
 type = internal/i3
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
 pin-workspaces = true
 
-; This will split the workspace name on ':'
-; Default: false
 strip-wsnumbers = false
 
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
 index-sort = false
 
-; Create click handler used to focus workspace
-; Default: true
 enable-click = true
 
-; Create scroll handlers used to cycle workspaces
-; Default: true
 enable-scroll = true
 
-; Wrap around when reaching the first/last workspace
-; Default: true
 wrapping-scroll = false
 
-; Set the scroll cycle direction
-; Default: true
 reverse-scroll = false
 
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
 fuzzy-match = false
-
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
-;       v     
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -156,9 +126,6 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = " "
 
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
 format = <label-state> <label-mode>
 
 label-mode = %mode%
@@ -166,43 +133,23 @@ label-mode-padding = 2
 label-mode-foreground = #000000
 label-mode-background = #FFBB00
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-; focused = Active workspace on focused monitor
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = #03b1fc
 label-focused-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon% %name%
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-underline =
 
-; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; urgent = Workspace with urgency hint set
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = #db46c0
@@ -214,16 +161,10 @@ format-background = ${colors.background}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
 use-ui-max = true
 
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
 interval = 5
 
 format-volume = <ramp-volume> <label-volume>
@@ -239,15 +180,8 @@ ramp-foreground = #bf616a
 [module/cpu]
 type = internal/cpu
 
-; Seconds to sleep between updates
-; Default: 1
 interval = 0.5
 
-; Available tags:
-;   <label> (default)
-;   <bar-load>
-;   <ramp-load>
-;   <ramp-coreload>
 label =  CPU %percentage%%
 format = <label> 
 label-foreground = #8fb1e3
@@ -255,8 +189,6 @@ label-foreground = #8fb1e3
 [module/memory]
 type = internal/memory
 
-; Seconds to sleep between updates
-; Default: 1
 interval = 3
 
 label =  RAM %percentage_used%%
@@ -268,47 +200,39 @@ label-foreground = #8fd5e3
 [module/poweroff]
 type = custom/text
 
-; Label
 content            = 
 content-background = #5e81ac
 content-foreground = #d8dee9
 content-padding    = 2
 
-; Mouse click
 click-left = i3 exit
 
 [module/firefox]
 type = custom/text
 
-; Label
 content = 
 content-background = #88c0d0
 content-foreground = #4c566a
 content-padding    = 2
 
-; Mouse click
 click-left = firefox
 
 [module/settings]
 type = custom/text
 
-; Label
 content = 
 content-background = #88c0d0
 content-foreground = #4c566a
 content-padding    = 2
 
-; Mouse click
 click-left = xfce4-settings-manager
 
 [module/term]
 type = custom/text
 
-; Label
 content            = 
 content-background = #5e81ac
 content-foreground = #d8dee9
 content-padding    = 2
 
-; Mouse click
 click-left = kitty

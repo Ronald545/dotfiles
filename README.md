@@ -5,14 +5,19 @@
 ![using Chromium](./screenshots/screenshot2.png)
 ![using Htop](./screenshots/screenshot3.png)
 ![using Neofetch](./screenshots/screenshot4.png)
+![Nord Neofetch](./screenshots/screenshot5.png)
+![using Ranger](./screenshots/screenshot6.png)
+![using Glow](./screenshots/screenshot7.png)
 
 ### Wallpaper
-![wallpaper](./wallpaper.jpg)
+![wallpaper](./wallpapers/void.jpg)
+![nord-wallpaper](./wallpapers/nordvoid.png)
 
 ## Environment
 - i3-gaps
 - polybar
 - rofi
+- picom
 
 ## Fonts
 - CaskaydiaCove Nerd Font Mono
@@ -39,10 +44,13 @@ export XMODIFIERS=@im=ibus
 
 - Chromium
 - Thunar
+- Ranger
 - LibreOffice
+- Kitty
 
 ## GTK Theme
 Adwaita Dark
+Nordic
 
 ## Misc
 - maim and xclip to produce screenshots that are saved in the clipboard

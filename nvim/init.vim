@@ -14,7 +14,7 @@ Plug 'reedes/vim-pencil'
 
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
-Plug 'navarasu/onedark.nvim'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'itchyny/lightline.vim'
 
@@ -93,12 +93,12 @@ let g:svelte_preprocessors = ['typescript']
 au BufRead,BufNewFile * :SoftPencil
 
 " vim onedark theme
-let g:onedark_style = 'darker'
-colorscheme onedark
+colorscheme nord
+set termguicolors
 
 " lightline config
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'nord',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {

@@ -145,6 +145,8 @@ gaps inner 10
 # floating window
 for_window [class="Ristretto"] floating enable
 for_window [class="Xreader"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="Pavucontrol"] floating enable
 floating_modifier Mod1
 bindsym $mod+Shift+f floating toggle
 

@@ -6,7 +6,7 @@ width = 100%
 height = 30
 dpi = 192
 
-background = #3b4252
+background = #2E3440
 foreground = #eee
 
 line-size = 1
@@ -14,7 +14,7 @@ line-size = 1
 padding-left = 0
 padding-right = 0
 module-margin-left = 0
-module-margin-right = 2
+module-margin-right = 4
 
 margin-top = 5
 margin-left = 5
@@ -23,16 +23,14 @@ margin-bottom = 5
 
 separator = ""
 
-font-0 = CaskaydiaCove\ Nerd\ Font\ Mono:size=6
-font-1 = JetBrainsMono\ Nerd\ Font\ Mono:size=6
-font-2 = JetBrainsMono\ Nerd\ Font\ Mono:size=7
-font-4 = "FontAwesome:size=12;1"
+font-0 = Iosevka:size=6
+font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:size=15
 
 tray-position = right
 wm-restack = i3
 
 modules-right = cpu memory pulseaudio datetime battery
-modules-left = i3
+modules-left = logo i3
 
 [colors]
 ; Nord theme ============
@@ -115,7 +113,7 @@ reverse-scroll = false
 
 fuzzy-match = false
 
-ws-icon-0 = 1;
+ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
@@ -174,9 +172,9 @@ label-muted-foreground = #bf616a
 label-volume-foreground = #bf616a
 ramp-volume-foreground = #bf616a
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = ﱘ
+ramp-volume-1 = ﱘﱘ
+ramp-volume-2 = ﱘﱘﱘ
 ramp-foreground = #bf616a
 [module/cpu]
 type = internal/cpu
@@ -198,42 +196,10 @@ format = <label>
 label-foreground = #8fd5e3
 
 
-[module/poweroff]
+[module/logo]
 type = custom/text
 
-content            = 
+content            = 
 content-background = #5e81ac
 content-foreground = #d8dee9
 content-padding    = 2
-
-click-left = i3 exit
-
-[module/firefox]
-type = custom/text
-
-content = 
-content-background = #88c0d0
-content-foreground = #4c566a
-content-padding    = 2
-
-click-left = firefox
-
-[module/settings]
-type = custom/text
-
-content = 
-content-background = #88c0d0
-content-foreground = #4c566a
-content-padding    = 2
-
-click-left = xfce4-settings-manager
-
-[module/term]
-type = custom/text
-
-content            = 
-content-background = #5e81ac
-content-foreground = #d8dee9
-content-padding    = 2
-
-click-left = kitty

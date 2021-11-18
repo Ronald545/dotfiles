@@ -64,7 +64,7 @@ format-full = <ramp-capacity> <label-full>
 
 label-charging-foreground = #a3be8c
 label-full-foreground = #a3be8c
-label-discharging-foreground = #f53c3c
+label-discharging-foreground = #a3be8c
 
 label-charging = %percentage%% 
 label-discharging = %percentage%%  

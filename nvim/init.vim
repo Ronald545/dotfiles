@@ -1,12 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
-Plug 'ryanoasis/vim-devicons'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bryanmylee/vim-colorscheme-icons'
 
@@ -23,8 +19,6 @@ Plug 'ellisonleao/glow.nvim'
 Plug 'tpope/vim-fugitive'
 
 Plug 'norcalli/nvim-colorizer.lua'
-
-Plug 'glepnir/dashboard-nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 
@@ -92,13 +86,13 @@ let g:svelte_preprocessors = ['typescript']
 " auto soft pencil
 au BufRead,BufNewFile * :SoftPencil
 
-" vim onedark theme
-colorscheme nord
+" vim nord theme
 set termguicolors
+colorscheme nord
 
 " lightline config
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'one',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
@@ -118,25 +112,13 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " colorizer 
 lua require'colorizer'.setup()
 
-" dashboard configs
-let g:mapleader="\<Space>"
-let g:dashboard_default_executive = 'telescope'
-let g:dashboard_custom_header = [
-\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-\]
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
-nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
-nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
-nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
-nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
-nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
-nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+nnoremap <Space>ff <cmd>:Telescope find_files<cr>
+nnoremap <Space>fg <cmd>:Telescope live_grep<cr>
+nnoremap <Space>fb <cmd>:Telescope buffers<cr>
+nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
+
 
 " telescope fuzzy finder configs
 lua << EOF

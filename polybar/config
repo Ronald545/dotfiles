@@ -6,9 +6,6 @@ width = 100%
 height = 30
 dpi = 192
 
-background = #2E3440
-foreground = #eee
-
 line-size = 1
 
 padding-left = 0
@@ -24,7 +21,7 @@ margin-bottom = 5
 separator = ""
 
 font-0 = Iosevka:size=6
-font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:size=15
+font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=17
 
 tray-position = right
 wm-restack = i3
@@ -32,14 +29,23 @@ wm-restack = i3
 modules-right = cpu memory pulseaudio datetime battery
 modules-left = logo i3
 
+background = ${colors.background}
+
 [colors]
 ; Nord theme ============
-background = #282c34
+background = #3B4252
+background-2 = #2E3440
 foreground = #abb2bf
 alert = #bd2c40
-volume-min = #a3be8c
-volume-med = #ebcb8b
 volume-max = #bf616a
+accent-1 = #8FBCBB
+accent-2 = #88C0D0
+accent-3 = #81A1C1
+accent-4 = #5E81AC
+red = #BF616A
+yellow = #EBCB8B
+green = #A3BE8C
+
 
 [module/datetime]
 type = internal/date
@@ -52,7 +58,7 @@ date = " %d/%m/%Y%"
 time = " %I:%M %p"
 
 label = "%date% | %time%"
-label-foreground = #ebcb8b
+label-foreground = ${colors.yellow}
 
 [module/battery]
 type = internal/battery
@@ -62,31 +68,29 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 
-label-charging-foreground = #a3be8c
-label-full-foreground = #a3be8c
-label-discharging-foreground = #a3be8c
+label-charging-foreground = ${colors.green}
+label-full-foreground = 
+label-discharging-foreground = ${colors.green}
 
 label-charging = %percentage%% 
 label-discharging = %percentage%%  
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = #ffa900
+ramp-capacity-0-foreground = ${colors.yellow}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
+ramp-capacity-1-foreground = ${colors.green}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-ramp-capacity-3-foreground = #a3be8c
+ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4 = 
-ramp-capacity-4-foreground = #a3be8c
+ramp-capacity-4-foreground = ${colors.green}
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-foreground = #a3be8c
+bar-capacity-foreground = ${colors.green}
 bar-capacity-fill = █
-bar-capacity-fill-foreground = #ddffffff
 bar-capacity-fill-font = 3
 bar-capacity-empty = █
 bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -94,6 +98,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
+animation-charging-foreground = ${colors.green}
 
 [module/i3]
 type = internal/i3
@@ -133,16 +138,15 @@ label-mode-foreground = #000000
 label-mode-background = #FFBB00
 
 label-focused = %icon% %name%
-label-focused-background = ${colors.background}
+label-focused-background = ${colors.background-2}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #03b1fc
+label-focused-underline = ${colors.accent-1}
 label-focused-padding = 2
 
 label-unfocused = %icon% %name%
 label-unfocused-padding = 2
-label-unfocused-background = ${colors.background}
+label-unfocused-background = ${colors.background-2}
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline =
 
 label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
@@ -151,7 +155,7 @@ label-visible-padding = 2
 
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = #db46c0
+label-urgent-foreground = ${colors.urgent}
 label-urgent-padding = 2
 
 format-foreground = ${colors.foreground}
@@ -168,14 +172,16 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = muted
-label-muted-foreground = #bf616a
-label-volume-foreground = #bf616a
-ramp-volume-foreground = #bf616a
+label-muted-foreground = ${colors.volume-max}
+label-volume-foreground = ${colors.volume-max}
+ramp-volume-foreground = ${colors.volume-max}
 
 ramp-volume-0 = ﱘ
 ramp-volume-1 = ﱘﱘ
 ramp-volume-2 = ﱘﱘﱘ
-ramp-foreground = #bf616a
+
+click-right = pavucontrol
+
 [module/cpu]
 type = internal/cpu
 
@@ -183,7 +189,7 @@ interval = 0.5
 
 label =  CPU %percentage%%
 format = <label> 
-label-foreground = #8fb1e3
+label-foreground = ${colors.accent-3}
 
 [module/memory]
 type = internal/memory
@@ -193,13 +199,13 @@ interval = 3
 label =  RAM %percentage_used%%
 format = <label>
 
-label-foreground = #8fd5e3
+label-foreground = ${colors.accent-1}
 
 
 [module/logo]
 type = custom/text
 
-content            = 
-content-background = #5e81ac
-content-foreground = #d8dee9
+content            = 
+content-background = ${colors.accent-4}
+content-foreground = ${colors.background-2}
 content-padding    = 2

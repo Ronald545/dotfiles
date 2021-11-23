@@ -1,13 +1,9 @@
 # Linux Dotfiles for Ronald
 
 ## Screenshots
-![using Neovim](./screenshots/screenshot1.png)
-![using Chromium](./screenshots/screenshot2.png)
-![using Htop](./screenshots/screenshot3.png)
-![using Neofetch](./screenshots/screenshot4.png)
-![Nord Neofetch](./screenshots/screenshot5.png)
-![using Ranger](./screenshots/screenshot6.png)
-![using Glow](./screenshots/screenshot7.png)
+![desktop](./screenshots/screenshot1.png)
+![neofetch](./screenshots/screenshot2.png)
+![neovim](./screenshots/screenshot3.png)
 
 ### Wallpaper
 ![wallpaper](./wallpapers/void.jpg)

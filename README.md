@@ -1,9 +1,9 @@
 # Linux Dotfiles for Ronald
 
 ## Screenshots
-![desktop](./screenshots/screenshot1.png)
-![neofetch](./screenshots/screenshot2.png)
-![neovim](./screenshots/screenshot3.png)
+![desktop](./screenshots/desktop.png)
+![neofetch](./screenshots/neofetch.png)
+![neovim](./screenshots/neovim.png)
 
 ### Wallpaper
 ![wallpaper](./wallpapers/void.jpg)

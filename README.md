@@ -5,9 +5,9 @@
 ![neofetch](./screenshots/neofetch.png)
 ![neovim](./screenshots/neovim.png)
 
-### Wallpaper
+### Wallpapers
 ![wallpaper](./wallpapers/void.jpg)
-![nord-wallpaper](./wallpapers/nordvoid.png)
+![nord-wallpaper](./wallpapers/nord.png)
 
 ## Environment
 - i3-gaps
@@ -19,6 +19,7 @@
 - CaskaydiaCove Nerd Font Mono
 - JetBrainsMono Nerd Font Mono Extra Bold
 - SpaceMono Nerd Font Mono Italic Bold
+- Iosevka
 
 ## Language Inputs
 - ibus libpinyin
@@ -43,9 +44,9 @@ export XMODIFIERS=@im=ibus
 - Ranger
 - LibreOffice
 - Kitty
+- Zathura
 
 ## GTK Theme
-Adwaita Dark
 Nordic
 
 ## Misc

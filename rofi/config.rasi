@@ -1,5 +1,6 @@
 configuration {
-  theme: "/home/ronald/.config/rofi/themes/nord/nord.rasi";
   font: "CaskaydiaCove Nerd Font Mono 13";
   icon-theme: "Papirus-Dark";
 }
+
+@theme "/home/ronald/.config/rofi/themes/nord/nord.rasi"

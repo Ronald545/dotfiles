@@ -56,8 +56,11 @@ inoremap {;<CR> {<CR>};<ESC>O
 " typing configs
 " -----------------------------------------------------------------
 
+" show matching brackets
+set showmatch
+
 " set line numbers
-set number
+set number relativenumber
 
 " indents
 " auto indent
@@ -119,6 +122,16 @@ nnoremap <Space>fg <cmd>:Telescope live_grep<cr>
 nnoremap <Space>fb <cmd>:Telescope buffers<cr>
 nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
 
+" spellchecker 
+set spelllang=en_us
+map <Space>s <cmd>:setlocal spell<cr>
+
+" autoindent
+map <Space>a <cmd>:setlocal autoindent<cr>
+map <Space>A <cmd>:setlocal noautoindent<cr>
+
+" clipboard settings
+set clipboard+=unnamedplus
 
 " telescope fuzzy finder configs
 lua << EOF

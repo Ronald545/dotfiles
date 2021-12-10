@@ -147,7 +147,7 @@ for_window [class="Ristretto"] floating enable
 for_window [class="Xreader"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Pavucontrol"] floating enable
-floating_modifier Mod1
+floating_modifier $mod
 bindsym $mod+Shift+f floating toggle
 
 mode "resize" {
@@ -202,22 +202,22 @@ exec_always --no-startup-id source /home/ronald/.profile
 bindsym Shift+Ctrl+S exec --no-startup-id xfce4-settings-manager
 bindsym Shift+Ctrl+O exec --no-startup-id libreoffice
 bindsym Shift+Ctrl+D exec --no-startup-id Discord
-bindsym Shift+Ctrl+M exec --no-startup-id /home/ronald/.apps/caprine/Caprine-2.54.1.AppImage
+bindsym Shift+Ctrl+M exec --no-startup-id caprine
 bindsym Shift+Ctrl+T exec --no-startup-id telegram-desktop
-bindsym Shift+Ctrl+W exec --no-startup-id ~/.apps/whatsdesk/dist/whatsdesk-0.3.6.AppImage
-bindsym Shift+Ctrl+F exec --no-startup-id "thunar"
-bindsym Shift+Ctrl+Z exec --no-startup-id "zoom"
+bindsym Shift+Ctrl+W exec --no-startup-id whatsdesk
+bindsym Shift+Ctrl+F exec --no-startup-id thunar
+bindsym Shift+Ctrl+Z exec --no-startup-id zoom
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec "surf www.google.com"
+bindsym $mod+Shift+Return exec chromium
 
 # brightness control
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # network manager
-exec_always --no-startup-id "nm-applet"
+exec_always --no-startup-id nm-applet
 # bluetooth manager
-exec_always --no-startup-id "blueman-applet"
+exec_always --no-startup-id blueman-applet
 # compositor
 exec_always --no-startup-id picom
 # dunst notification manager

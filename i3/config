@@ -181,10 +181,10 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore &
 
 # rofi configs
-bindsym $mod+space exec "rofi -show drun -show-icons"
-bindsym $mod+Shift+space exec "rofi -show run"
-bindsym $mod+ctrl+space exec "rofi -show filebrowser -show-icons"
-bindsym Shift+ctrl+BackSpace exec "rofi -show p -modi p:~/.config/rofi/rofi-pm"
+bindsym $mod+space exec j4-dmenu-desktop
+bindsym $mod+Shift+space exec dmenu_run
+bindsym $mod+ctrl+space exec dmenufm
+bindsym Shift+ctrl+BackSpace exec dmenu-pm
 
 # Screenshots
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter 

@@ -198,3 +198,4 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # autostart script
 exec_always --no-startup-id sh /home/ronald/.config/i3/autostart.sh
+exec_always ~/.config/polybar/launch.sh &&

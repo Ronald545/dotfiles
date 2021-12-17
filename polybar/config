@@ -21,7 +21,7 @@ margin-bottom = 5
 separator = ""
 
 font-0 = Iosevka:size=6
-font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=17
+font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=8
 
 tray-position = right
 wm-restack = i3

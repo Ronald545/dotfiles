@@ -15,14 +15,11 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    # width = (0, 300)
-    # constant width of 300
-    width = 500
+    width = 300 #
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -31,7 +28,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 20x20
+    offset = 15 x 40
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -63,10 +60,10 @@
     # notification_limit).
     indicate_hidden = yes
 
-    # The transparency of the window.  Range: [0; 100].
+    # The cy of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 30
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -87,7 +84,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#88c0d0"
+    frame_color = "#88C0D0"
 
     # Define a color for the separator.
     # possible values are:

@@ -1,11 +1,10 @@
 #!/bin/sh
 
-case "$(echo "Shutdown\nRestart\nLogout\nSuspend\nLogout" | dmenu \
+case "$(echo "Shutdown\nRestart\nLogout\nSuspend" | dmenu \
     -b -i -p \
     "Power:" -l 5)" in
         Shutdown) exec sudo shutdown -P now;;
         Restart) exec sudo reboot;;
-        Logout) loginctl terminate-session ${XDG_SESSION_ID-};;
+        Logout) i3 exit;;
         Suspend) sudo zzz;;
-	Logout) i3 exit;;
 esac

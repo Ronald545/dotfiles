@@ -1,0 +1,4 @@
+[build-menu]
+FT_00_LB=cpp
+FT_00_CM=g++ -Wall -std=c++0x -o "%e" "%f"
+FT_00_WD=

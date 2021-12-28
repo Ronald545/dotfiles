@@ -8,10 +8,7 @@ dpi = 192
 
 line-size = 1
 
-padding-left = 0
-padding-right = 0
-module-margin-left = 0
-module-margin-right = 4
+module-margin = 1
 
 margin-top = 5
 margin-left = 5
@@ -21,7 +18,7 @@ margin-bottom = 5
 separator = ""
 
 font-0 = Iosevka:size=6
-font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=8
+font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=17
 
 tray-position = right
 wm-restack = i3
@@ -37,7 +34,6 @@ background = #3B4252
 background-2 = #2E3440
 foreground = #abb2bf
 alert = #bd2c40
-volume-max = #bf616a
 accent-1 = #8FBCBB
 accent-2 = #88C0D0
 accent-3 = #81A1C1
@@ -51,14 +47,14 @@ green = #A3BE8C
 type = internal/date
 interval = 1.0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+label-background = ${colors.accent-4}
+label-foreground = ${colors.background-2}
+label-padding = 2
 
 date = " %d/%m/%Y%"
 time = " %I:%M %p"
 
 label = "%date% | %time%"
-label-foreground = ${colors.yellow}
 
 [module/battery]
 type = internal/battery
@@ -75,10 +71,11 @@ label-discharging-foreground = ${colors.green}
 label-charging = %percentage%% 
 label-discharging = %percentage%%  
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.yellow}
+ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.green}
+ramp-capacity-1-foreground = ${colors.yellow}
 ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.green}
 ramp-capacity-3 = 
 ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4 = 
@@ -172,9 +169,13 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = muted
-label-muted-foreground = ${colors.volume-max}
-label-volume-foreground = ${colors.volume-max}
-ramp-volume-foreground = ${colors.volume-max}
+label-muted-foreground = ${colors.background-2}
+label-volume-foreground = ${colors.background-2}
+ramp-volume-foreground = ${colors.background-2}
+format-volume-background = ${colors.accent-3}
+format-muted-background = ${colors.accent-3}
+format-volume-padding = 2
+format-muted-padding = 2
 
 ramp-volume-0 = ﱘ
 ramp-volume-1 = ﱘﱘ
@@ -187,20 +188,23 @@ type = internal/cpu
 
 interval = 0.5
 
-label =  CPU %percentage%%
+label =  CPU %percentage%%
 format = <label> 
-label-foreground = ${colors.accent-3}
+label-foreground = ${colors.background-2}
+label-background = ${colors.accent-1}
+label-padding = 2
 
 [module/memory]
 type = internal/memory
 
 interval = 3
 
-label =  RAM %percentage_used%%
+label =  RAM %percentage_used%%
 format = <label>
 
-label-foreground = ${colors.accent-1}
-
+label-foreground = ${colors.background-2}
+label-background = ${colors.accent-2}
+label-padding = 2
 
 [module/logo]
 type = custom/text

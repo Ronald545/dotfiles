@@ -55,13 +55,14 @@ remember to update your ~/.zshrc
 - j4-dmenu-desktop for apps
 - dmenufm for file managing
 - dmenu-pm for power managing
+- networkmanager_dmenu for connecting to wifi
 
 > if you dont want to you dmenu, you can also use rofi which is a modern replacement for it
 > just use your package manager to instal the rofi package, the dotfiles are included in this repo as well
 
 ### setup
 1. clone dmenu and add the config.h in this repo to build it
-2. copy dmenu-pm into /bin, (edit the commands used as needed)  
+2. copy dmenu-pm, networkmanager_dmenu into /bin, (edit the commands used as needed)  
 3. install j4-dmenu-desktop, dmenufm from github
 4. copy dmenufm config dir in ./dmenu/dmenufm to .config
 

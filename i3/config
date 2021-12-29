@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Mono 8
+font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -131,8 +131,8 @@ bindsym $mod+r mode "resize"
 
 # borders and gaps
 for_window [class="^.*"] border pixel 2
-gaps outer 5
-gaps inner 10
+gaps outer 2
+gaps inner 5
 
 # floating window
 for_window [class="Ristretto"] floating enable
@@ -168,9 +168,10 @@ mode "resize" {
 
 # dmenu configs
 bindsym $mod+shift+a exec j4-dmenu-desktop
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -c -l 10
 bindsym $mod+Ctrl+f exec dmenufm
-bindsym $mod+x exec dmenu-pm
+bindsym $mod+x exec dmenu-pm -c -l 20
+bindsym $mod+n exec networkmanager_dmenu -c -l 10
 
 # Screenshots
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter 
@@ -198,10 +199,18 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # autostart script
 exec_always nitrogen --restore
-exec_always ~/.config/polybar/launch.sh
 exec_always nm-applet
 exec_always blueman-applet
 exec_always dunst
 exec_always ibus-daemon --xim -d 
 exec_always picom
 exec_always ./home/ronald/.profile
+
+# scratchpads
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# polybar
+bar {
+  i3bar_command ~/.config/polybar/launch.sh
+}

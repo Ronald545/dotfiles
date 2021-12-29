@@ -18,10 +18,8 @@ margin-bottom = 5
 separator = ""
 
 font-0 = Iosevka:size=6
-font-1 = CaskaydiaCove\ Nerd\ Font\ Mono:pixelsize=17
 
 tray-position = right
-wm-restack = i3
 
 modules-right = cpu memory pulseaudio datetime battery
 modules-left = logo i3
@@ -209,7 +207,7 @@ label-padding = 2
 [module/logo]
 type = custom/text
 
-content            = 
+content            = 異
 content-background = ${colors.accent-4}
 content-foreground = ${colors.background-2}
 content-padding    = 2

@@ -133,6 +133,12 @@ map <Space>A <cmd>:setlocal noautoindent<cr>
 " clipboard settings
 set clipboard+=unnamedplus
 
+" run programs
+" c++
+nnoremap <M-c> :!g++ % -Wall -g -o %:r && ./%:r<CR>
+" go
+nnoremap <M-g> :!go run % <CR>
+
 " telescope fuzzy finder configs
 lua << EOF
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } } 

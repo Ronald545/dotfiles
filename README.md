@@ -16,7 +16,7 @@ refer to [guide](./INSTALL.md)
 - i3-gaps
 - polybar
 - rofi
-- picom
+- picom ([with animations](https://github.com/jonaburg/picom))
 
 ## Fonts
 - CaskaydiaCove Nerd Font Mono

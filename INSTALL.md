@@ -7,7 +7,7 @@ can be installed using a package manager (apt, pacman, etc):
 - picom (compositor)
 - dunst (notification manager)
 - nitrogen (wallpaper setting)
-- main (screenshot taker)
+- maim (screenshot taker)
 - xclip (clipboard manager)
 - zsh (unix shell)
 - kitty (terminal emulator)

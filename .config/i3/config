@@ -139,11 +139,15 @@ gaps inner 2
  client.unfocused        #222222 #222222 #888888 #292d2e #434C5E
  client.urgent           #BF616A #900000 #ffffff #BF616A #BF616A
 
-# floating window
+# default floating windows
 for_window [class="Ristretto"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="vlc"] floating enable
 for_window [title="^zoom$"] floating enable
 for_window [class="zoom" title="Settings"] floating enable
+for_window [title="Zoom Cloud Meetings"] floating enable
+for_window [title="Zoom - Free Account"] floating disable
+
 floating_modifier $mod
 bindsym $mod+Shift+f floating toggle
 
@@ -171,11 +175,32 @@ mode "resize" {
         bindsym Mod1+r mode "default"
 }
 
+# workspace settings
+# main apps
+assign [class="zoom"] $ws1
+# browsers
+assign [class="Brave-browser-nightly"] $ws2
+assign [class="firefox"] $ws2
+# media
+assign [class="Gimp"] $ws3
+assign [class="obs"] $ws3
+assign [class="kdenlive"] $ws3
+assign [class="Blender"] $ws3 
+assign [class="Audacity"] $ws3 
+assign [instance="libreoffice"] $ws3
+assign [title="LibreOffice"] $ws3
+# social
+assign [class="discord"] $ws4
+assign [class="Caprine"] $ws4
+assign [class="whatsdesk"] $ws4
+assign [class="TelegramDesktop"] $ws4
+assign [class="Signal"] $ws4
+
 # dmenu configs
 bindsym $mod+shift+a exec j4-dmenu-desktop
 bindsym $mod+d exec dmenu_run -c -l 10
 bindsym $mod+Ctrl+f exec dmenufm
-bindsym $mod+x exec dmenu-pm -c -l 20
+bindsym $mod+x exec dmenu-pm -c -l 10
 bindsym $mod+n exec networkmanager_dmenu -c -l 10
 
 # Screenshots
@@ -186,17 +211,19 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
-# apps
+# app shortcuts
 bindsym Shift+Ctrl+S exec --no-startup-id xfce4-settings-manager
 bindsym Shift+Ctrl+O exec --no-startup-id libreoffice
-bindsym Shift+Ctrl+D exec --no-startup-id discord
+bindsym Shift+Ctrl+D exec --no-startup-id Discord
 bindsym Shift+Ctrl+M exec --no-startup-id caprine
 bindsym Shift+Ctrl+T exec --no-startup-id telegram-desktop
 bindsym Shift+Ctrl+W exec --no-startup-id whatsdesk
 bindsym Shift+Ctrl+F exec --no-startup-id thunar
 bindsym Shift+Ctrl+Z exec --no-startup-id zoom
+bindsym $mod+t exec ristretto /home/ronald/Desktop/timetable.jpeg
 bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec brave-browser-nightly
+bindsym $mod+Shift+Ctrl+Return exec firefox
 
 # brightness control
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10

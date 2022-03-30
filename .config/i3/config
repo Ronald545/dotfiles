@@ -143,6 +143,7 @@ gaps inner 2
 for_window [class="Ristretto"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="Xreader"] floating enable
 for_window [title="^zoom$"] floating enable
 for_window [class="zoom" title="Settings"] floating enable
 for_window [title="Zoom Cloud Meetings"] floating enable
@@ -181,20 +182,21 @@ assign [class="zoom"] $ws1
 # browsers
 assign [class="Brave-browser-nightly"] $ws2
 assign [class="firefox"] $ws2
-# media
-assign [class="Gimp"] $ws3
-assign [class="obs"] $ws3
-assign [class="kdenlive"] $ws3
-assign [class="Blender"] $ws3 
-assign [class="Audacity"] $ws3 
-assign [instance="libreoffice"] $ws3
-assign [title="LibreOffice"] $ws3
 # social
-assign [class="discord"] $ws4
-assign [class="Caprine"] $ws4
-assign [class="whatsdesk"] $ws4
-assign [class="TelegramDesktop"] $ws4
-assign [class="Signal"] $ws4
+assign [class="discord"] $ws3
+assign [class="Caprine"] $ws3
+assign [class="whatsdesk"] $ws3
+assign [class="TelegramDesktop"] $ws3
+assign [class="Signal"] $ws3
+# media
+assign [class="Gimp"] $ws4
+assign [class="obs"] $ws4
+assign [class="kdenlive"] $ws4
+assign [class="Blender"] $ws4 
+assign [class="Audacity"] $ws4 
+assign [class="Inkscapep"] $ws4
+assign [instance="libreoffice"] $ws4
+assign [title="LibreOffice"] $ws4
 
 # dmenu configs
 bindsym $mod+shift+a exec j4-dmenu-desktop
@@ -220,7 +222,7 @@ bindsym Shift+Ctrl+T exec --no-startup-id telegram-desktop
 bindsym Shift+Ctrl+W exec --no-startup-id whatsdesk
 bindsym Shift+Ctrl+F exec --no-startup-id thunar
 bindsym Shift+Ctrl+Z exec --no-startup-id zoom
-bindsym $mod+t exec ristretto /home/ronald/Desktop/timetable.jpeg
+bindsym $mod+t exec ristretto /home/ronald/Desktop/timetable.png
 bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec brave-browser-nightly
 bindsym $mod+Shift+Ctrl+Return exec firefox
@@ -231,16 +233,19 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # autostart script
 exec_always nitrogen --restore
-exec_always blueman-applet
-exec_always dunst
 exec_always ibus-daemon --xim -d 
-exec_always picom
+exec_always blueman-applet
 exec_always nm-applet
-exec_always source ~/.profile
+exec_always dunst
+exec_always picom
+exec_always source ~/.profile exec_always xbacklight -set 60
+exec_always pavucontrol
+exec_always notify-send "📦 $(xbps-install -n -u | wc -l) packages to be updated 🚀"
 
 # scratchpads
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+for_window [instance="pavucontrol"] move scratchpad
 
 # polybar
 bar {

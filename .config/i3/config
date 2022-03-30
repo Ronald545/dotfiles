@@ -240,7 +240,7 @@ exec_always dunst
 exec_always picom
 exec_always source ~/.profile exec_always xbacklight -set 60
 exec_always pavucontrol
-exec_always notify-send "📦 $(xbps-install -n -u | wc -l) packages to be updated 🚀"
+exec notify-send "📦 $(xbps-install -n -u | wc -l) packages to be updated 🚀"
 
 # scratchpads
 bindsym $mod+Shift+minus move scratchpad

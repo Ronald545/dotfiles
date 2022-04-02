@@ -12,6 +12,8 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'joshdick/onedark.vim'
+
 Plug 'itchyny/lightline.vim'
 
 Plug 'ellisonleao/glow.nvim'
@@ -56,11 +58,8 @@ inoremap {;<CR> {<CR>};<ESC>O
 " typing configs
 " -----------------------------------------------------------------
 
-" show matching brackets
-set showmatch
-
 " set line numbers
-set number relativenumber
+set number
 
 " indents
 " auto indent
@@ -91,7 +90,8 @@ au BufRead,BufNewFile * :SoftPencil
 
 " vim nord theme
 set termguicolors
-colorscheme nord
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 
 " lightline config
 let g:lightline = {
@@ -122,22 +122,6 @@ nnoremap <Space>fg <cmd>:Telescope live_grep<cr>
 nnoremap <Space>fb <cmd>:Telescope buffers<cr>
 nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
 
-" spellchecker 
-set spelllang=en_us
-map <Space>s <cmd>:setlocal spell<cr>
-
-" autoindent
-map <Space>a <cmd>:setlocal autoindent<cr>
-map <Space>A <cmd>:setlocal noautoindent<cr>
-
-" clipboard settings
-set clipboard+=unnamedplus
-
-" run programs
-" c++
-nnoremap <M-c> :!g++ % -Wall -g -o %:r && ./%:r<CR>
-" go
-nnoremap <M-g> :!go run % <CR>
 
 " telescope fuzzy finder configs
 lua << EOF

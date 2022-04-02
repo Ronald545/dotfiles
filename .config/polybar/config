@@ -1,0 +1,250 @@
+[bar/mainbar-i3]
+enable-ipc = true
+top = true
+monitor = ${env:MONITORS[0]:eDP1}
+width = 99.99%
+height = 35
+dpi = 192
+
+line-size = 1
+
+module-margin = 1
+
+separator = "|"
+
+font-0 = Iosevka:size=6
+font-1 = JetBrainsMono Nerd Font Mono:size=9
+
+tray-position = right
+
+modules-right = cpu memory pulseaudio datetime wireless-network battery
+modules-left = logo i3
+
+background = ${colors.background}
+
+[colors]
+; Nord theme ============
+background = #141414
+background-2 = #1a1818
+foreground = #abb2bf
+alert = #bd2c40
+accent-1 = #E5E9F0
+red = #BF616A
+yellow = #E18A07
+green = #A3BE8C
+purple = #B48EAD
+urgent = ${colors.yellow}
+
+[module/datetime]
+type = internal/date
+interval = 1.0
+
+label-foreground = ${colors.accent-1}
+label-underline = ${colors.accent-1}
+
+date = " %d/%m/%Y%"
+time = "%I:%M %p"
+
+label = "%date% | %time%"
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+format-full-underline = ${colors.green}
+format-full-padding = 1
+format-charging-underline = ${colors.green}
+format-charging-padding = 1
+format-discharging-underline = ${colors.green}
+format-discharging-padding = 1
+
+label-charging-foreground = ${colors.green}
+label-full-foreground = ${colors.green}
+label-discharging-foreground = ${colors.green}
+
+label-charging = %percentage%% 
+label-discharging = %percentage%%  
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.yellow}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.green}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.green}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.green}
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-foreground = ${colors.green}
+bar-capacity-fill = █
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.green}
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+
+strip-wsnumbers = false
+
+index-sort = false
+
+enable-click = true
+
+enable-scroll = true
+
+wrapping-scroll = false
+
+reverse-scroll = false
+
+fuzzy-match = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = " "
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000000
+label-mode-background = #FFBB00
+
+label-focused = %icon% %name%
+label-focused-background = ${colors.background-2}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.accent-1}
+label-focused-padding = 2
+
+label-unfocused = %icon% %name%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.background-2}
+label-unfocused-foreground = ${colors.foreground}
+
+label-visible = %icon% %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+
+label-urgent = %icon% %name%
+label-urgent-background = ${self.label-focused-background}
+label-urgent-foreground = ${colors.urgent}
+label-urgent-padding = 2
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max = true
+
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = 婢 muted
+format-muted-foreground = ${colors.red}
+label-volume-foreground = ${colors.accent-1}
+ramp-volume-foreground = ${colors.accent-1}
+format-muted-underline = ${colors.red}
+format-volume-underline = ${colors.accent-1}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = pavucontrol
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+label =  CPU %percentage%%
+format = <label> 
+label-foreground = ${colors.accent-1}
+label-underline = ${colors.accent-1}
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+label =  RAM %percentage_used%%
+format = <label>
+
+label-foreground = ${colors.accent-1}
+label-underline = ${colors.accent-1}
+
+[module/logo]
+type = custom/text
+
+content            = 
+content-foreground = ${colors.accent-1}
+content-padding    = 2
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+
+interval = 3.0
+
+udspeed-minwidth = 5
+
+accumulate-stats = true
+
+unknown-as-up = true
+
+format-connected-underline = ${colors.accent-1}
+
+format-connected = <ramp-signal> <label-connected>
+
+format-disconnected-underline = ${colors.red}
+
+format-disconnected = <label-disconnected>
+
+format-packetloss = <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = ${colors.accent-1}
+
+label-disconnected = not connected
+label-disconnected-foreground = ${colors.red}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+ramp-signal-foreground = ${colors.accent-1}
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = ${colors.red}
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = ${colors.red}
+animation-packetloss-framerate = 500

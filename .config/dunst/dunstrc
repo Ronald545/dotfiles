@@ -15,11 +15,14 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
+    follow = mouse
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    width = 500 #
+    # width = (0, 300)
+    # constant width of 300
+    width = 400
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -28,7 +31,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 15 x 40
+    offset = 20x20
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -60,10 +63,10 @@
     # notification_limit).
     indicate_hidden = yes
 
-    # The cy of the window.  Range: [0; 100].
+    # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 30
+    transparency = 0
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -84,7 +87,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#88C0D0"
+    frame_color = "#ffffff"
 
     # Define a color for the separator.
     # possible values are:
@@ -92,7 +95,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#4c566a"
+    separator_color = "#dedede"
 
     # Sort messages by urgency.
     sort = yes
@@ -294,8 +297,8 @@
     #new_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#3b4252"
-    foreground = "#d8dee9"
+    background = "#000000"
+    foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon

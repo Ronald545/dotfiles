@@ -77,7 +77,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -129,15 +129,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 # borders and gaps
-for_window [class="^.*"] border pixel 2
-for_window[class="zoom"] border pixel 1
-gaps outer 2
-gaps inner 2
+for_window [class="^.*"] border pixel 0
+for_window [class="Xfce4-terminal"] border pixel 2
+gaps outer 5
+gaps inner 5
 
 # border colors
- client.focused          #88C0D0 #285577 #ffffff #2e9ef4 #88C0D0
- client.unfocused        #222222 #222222 #888888 #292d2e #434C5E
- client.urgent           #BF616A #900000 #ffffff #BF616A #BF616A
+client.focused          #88C0D0 #285577 #ffffff #2e9ef4 #88C0D0
+client.unfocused        #222222 #222222 #888888 #292d2e #434C5E
+client.urgent           #BF616A #900000 #ffffff #BF616A #BF616A
 
 # default floating windows
 for_window [class="Ristretto"] floating enable
@@ -199,11 +199,12 @@ assign [instance="libreoffice"] $ws4
 assign [title="LibreOffice"] $ws4
 
 # dmenu configs
-bindsym $mod+shift+a exec j4-dmenu-desktop
-bindsym $mod+d exec dmenu_run -c -l 10
+bindsym $mod+a exec j4-dmenu-desktop  --dmenu="dmenu -l 10 -p App:"
+bindsym $mod+d exec dmenu_run -c -l 10 -p "Command:"
 bindsym $mod+Ctrl+f exec dmenufm
 bindsym $mod+x exec dmenu-pm -c -l 10
 bindsym $mod+n exec networkmanager_dmenu -c -l 10
+bindsym $mod+m exec ~/sh-scripts/dmenu-sh-scripts.sh
 
 # Screenshots
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter 
@@ -238,9 +239,10 @@ exec_always blueman-applet
 exec_always nm-applet
 exec_always dunst
 exec_always picom
-exec_always source ~/.profile exec_always xbacklight -set 60
-exec_always pavucontrol
-exec notify-send "📦 $(xbps-install -n -u | wc -l) packages to be updated 🚀"
+exec_always source ~/.profile 
+exec_always xbacklight -set 60
+exec_always xfce4-screensaver
+exec notify-send "📦 $(xbps-install -M -n -u | wc -l) packages to be updated 🚀"
 
 # scratchpads
 bindsym $mod+Shift+minus move scratchpad

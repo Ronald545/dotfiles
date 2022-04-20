@@ -4,6 +4,7 @@
 refer to [guide](./INSTALL.md)
 
 ## Screenshots
+![nice](./screenshots/nice.png)
 ![desktop](./screenshots/desktop.png)
 ![neofetch](./screenshots/neofetch.png)
 ![neovim](./screenshots/neovim.png)
@@ -15,13 +16,14 @@ refer to [guide](./INSTALL.md)
 ## Environment
 - i3-gaps
 - polybar
-- rofi
+- dmenu
 - picom ([with animations](https://github.com/jonaburg/picom))
 
 ## Fonts
 - CaskaydiaCove Nerd Font Mono
 - JetBrainsMono Nerd Font Mono Extra Bold
 - SpaceMono Nerd Font Mono Italic Bold
+- Mononoki Regular
 - Iosevka
 
 ## Language Inputs
@@ -45,6 +47,6 @@ refer to [guide](./INSTALL.md)
 Nordic
 
 ## Misc
-- maim and xclip to produce screenshots that are saved in the clipboard
+- maim and xclip to produce screenshots that are saved in the clipboard / flameshot
 - xbacklight for brightness control
 - nitrogen to set background 

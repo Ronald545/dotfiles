@@ -24,6 +24,10 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 " shortcuts
@@ -59,9 +63,6 @@ inoremap {;<CR> {<CR>};<ESC>O
 " show matching brackets
 set showmatch
 
-" set line numbers
-set number relativenumber
-
 " indents
 " auto indent
 set ai
@@ -92,6 +93,7 @@ au BufRead,BufNewFile * :SoftPencil
 " vim nord theme
 set termguicolors
 colorscheme nord
+hi normal guibg=000000
 
 " lightline config
 let g:lightline = {
@@ -107,6 +109,8 @@ let g:lightline = {
       \ }
 
 " autocomplete for coc
+autocmd BufReadPre * CocStart
+autocmd BufNewFile * CocStart
 autocmd BufReadPre * CocEnable
 autocmd BufNewFile * CocEnable
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -121,6 +125,14 @@ nnoremap <Space>ff <cmd>:Telescope find_files<cr>
 nnoremap <Space>fg <cmd>:Telescope live_grep<cr>
 nnoremap <Space>fb <cmd>:Telescope buffers<cr>
 nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
+
+" tabs and keybindings
+nnoremap <C-Left> : tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
 
 " spellchecker 
 set spelllang=en_us
@@ -138,6 +150,11 @@ set clipboard+=unnamedplus
 nnoremap <M-c> :!g++ % -Wall -g -o %:r && ./%:r<CR>
 " go
 nnoremap <M-g> :!go run % <CR>
+
+" set line number
+set number
+
+set mouse+=a
 
 " telescope fuzzy finder configs
 lua << EOF

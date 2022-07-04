@@ -26,6 +26,12 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 " shortcuts
@@ -58,8 +64,11 @@ inoremap {;<CR> {<CR>};<ESC>O
 " typing configs
 " -----------------------------------------------------------------
 
+" show matching brackets
+set showmatch
+
 " set line numbers
-set number
+set relativenumber
 
 " indents
 " auto indent
@@ -107,6 +116,8 @@ let g:lightline = {
       \ }
 
 " autocomplete for coc
+autocmd BufReadPre * CocStart
+autocmd BufNewFile * CocStart
 autocmd BufReadPre * CocEnable
 autocmd BufNewFile * CocEnable
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -122,6 +133,35 @@ nnoremap <Space>fg <cmd>:Telescope live_grep<cr>
 nnoremap <Space>fb <cmd>:Telescope buffers<cr>
 nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
 
+" tabs and keybindings
+nnoremap <C-Left> : tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
+
+" spellchecker 
+set spelllang=en_us
+map <Space>s <cmd>:setlocal spell<cr>
+
+" autoindent
+map <Space>a <cmd>:setlocal autoindent<cr>
+map <Space>A <cmd>:setlocal noautoindent<cr>
+
+" clipboard settings
+set clipboard+=unnamedplus
+
+" run programs
+" c++
+nnoremap <M-c> :!g++ % -Wall -g -o %:r && ./%:r<CR>
+" go
+nnoremap <M-g> :!go run % <CR>
+
+" set line number
+set number
+
+set mouse+=a
 
 " telescope fuzzy finder configs
 lua << EOF

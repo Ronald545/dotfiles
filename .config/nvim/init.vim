@@ -92,6 +92,9 @@ au BufRead,BufNewFile * :SoftPencil
 
 " vim nord theme
 set termguicolors
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+set background=dark
 colorscheme nord
 hi normal guibg=000000
 
@@ -132,7 +135,6 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
 
 " spellchecker 
 set spelllang=en_us

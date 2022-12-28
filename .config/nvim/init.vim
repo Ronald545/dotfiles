@@ -1,7 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bryanmylee/vim-colorscheme-icons'
@@ -11,6 +9,9 @@ Plug 'reedes/vim-pencil'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'arcticicestudio/nord-vim'
+
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'ellisonleao/gruvbox.nvim'
 
 Plug 'itchyny/lightline.vim'
 
@@ -23,7 +24,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'romgrk/barbar.nvim'
@@ -33,8 +33,8 @@ call plug#end()
 " shortcuts
 " -----------------------------------------------------------------
 
-" ctrl + d to start CHADtree
-nnoremap <C-d> <cmd>CHADopen<cr>
+" ctrl + d to start nvim file explorer
+nnoremap <C-d> :Explore<CR>
 
 " open new tab
 nnoremap <C-t> :tabedit<CR>
@@ -92,22 +92,24 @@ au BufRead,BufNewFile * :SoftPencil
 
 " vim nord theme
 set termguicolors
-let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-set background=dark
-colorscheme nord
+" let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+" let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+colorscheme gruvbox
 hi normal guibg=000000
+
+" highlight matching items
+set showmatch
 
 " lightline config
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'gruvbox',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
-      \   'left': [['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']]
+      \   'left': [['decor', 'mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']]
       \ },
       \ 'component_function': { 
-      \   'gitbranch': 'FugitiveHead' 
+      \   'gitbranch': 'FugitiveHead',
       \ }
       \ }
 
@@ -116,8 +118,7 @@ autocmd BufReadPre * CocStart
 autocmd BufNewFile * CocStart
 autocmd BufReadPre * CocEnable
 autocmd BufNewFile * CocEnable
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " colorizer 
 lua require'colorizer'.setup()
@@ -130,7 +131,7 @@ nnoremap <Space>fb <cmd>:Telescope buffers<cr>
 nnoremap <Space>fh <cmd>:Telescope help_tags<cr>
 
 " tabs and keybindings
-nnoremap <C-Left> : tabprevious<CR>
+nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
@@ -152,6 +153,8 @@ set clipboard+=unnamedplus
 nnoremap <M-c> :!g++ % -Wall -g -o %:r && ./%:r<CR>
 " go
 nnoremap <M-g> :!go run % <CR>
+" rust
+nnoremap <M-r> :!cargo run <CR>
 
 " set line number
 set number

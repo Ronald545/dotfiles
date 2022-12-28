@@ -12,7 +12,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Mono 9
+font pango:JetBrainsMono Nerd Font Mono 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -129,16 +129,19 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 # borders and gaps
-smart_borders on
 for_window [floating] border pixel 5
-for_window [tiling] border pixel 3
-gaps outer 5
-gaps inner 5
+for_window [tiling] border pixel 2
+gaps outer 7
+gaps inner 2
 #smart_gaps on
 
-# border colors
-client.focused          #88C0D0 #285577 #ffffff #2e9ef4 #88C0D0
-client.unfocused        #222222 #222222 #888888 #292d2e #434C5E
+# border colors (nord)
+# client.focused          #88C0D0 #434C5E #ECEFF4 #2e9ef4 #88C0D0
+# client.unfocused        #222222 #2E3440 #D8DEE9 #292d2e #434C5E
+# client.urgent           #BF616A #900000 #ffffff #BF616A #BF616A
+# border colors #(gruvbox)
+client.focused          #fabd2f #bdae93 #ECEFF4 #d79921 #fabd2f
+client.unfocused        #222222 #bdae93 #D8DEE9 #292d2e #434C5E
 client.urgent           #BF616A #900000 #ffffff #BF616A #BF616A
 
 # default floating windows
@@ -187,6 +190,7 @@ assign [class="join$"] $ws1
 # browsers
 assign [class="Brave-browser-nightly"] $ws2
 assign [class="Firefox"] $ws2
+assign [class="Epiphany"] $ws2
 # social
 assign [class="discord"] $ws3
 assign [class="Caprine"] $ws3
@@ -199,13 +203,22 @@ assign [class="obs"] $ws4
 assign [class="kdenlive"] $ws4
 assign [class="Blender"] $ws4 
 assign [class="Audacity"] $ws4 
-assign [class="Inkscapep"] $ws4
+assign [class="Inkscape"] $ws4
 assign [instance="libreoffice"] $ws4
 assign [title="LibreOffice"] $ws4
 assign [class="DesktopEditors"] $ws4
+# notes and productivity
+assign [class="notion-app"] $ws5 
+assign [class="obsidian"] $ws5
+assign [class="Planner"] $ws5 
+assign [class="Tomate-gtk"] $ws5
+# dev 
+assign [class="Arduino IDE"] $ws6
+assign [class="Virt-manager"] $ws6
 
 # dmenu configs
-bindsym $mod+a exec j4-dmenu-desktop  --dmenu="dmenu -l 10 -p App:"
+# bindsym $mod+a exec j4-dmenu-desktop  --dmenu="dmenu -l 10 -p App:"
+bindsym $mod+a exec rofi -show drun -show-icons -icon-theme Papirus-dark
 bindsym $mod+d exec dmenu_run -c -l 10 -p "Command:"
 bindsym $mod+Ctrl+f exec dmenufm
 bindsym $mod+x exec dmenu-pm -c -l 10
@@ -229,11 +242,13 @@ bindsym Shift+Ctrl+T exec --no-startup-id telegram-desktop
 bindsym Shift+Ctrl+W exec --no-startup-id whatsdesk
 bindsym Shift+Ctrl+F exec --no-startup-id thunar
 bindsym Shift+Ctrl+Z exec --no-startup-id zoom
-bindsym $mod+t exec ristretto /home/ronald/Desktop/timetable.png
-bindsym $mod+Return exec xfce4-terminal
-bindsym Ctrl+Return exec xfce4-terminal -T floating
+bindsym $mod+t exec ristretto /home/ronald/Desktop/timetable.jpeg
+bindsym $mod+Return exec alacritty
+bindsym Ctrl+Return exec alacritty -t floating
+bindsym $mod+Shift+A exec alacritty -e distrobox enter dev-arch
 bindsym $mod+Shift+Return exec brave-browser-nightly
 bindsym $mod+Shift+Ctrl+Return exec firefox
+bindsym $mod+space exec --no-startup-id xfce4-popup-whiskermenu
 
 # brightness control
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -249,7 +264,10 @@ exec_always picom
 exec_always source ~/.profile 
 exec_always xbacklight -set 60
 exec_always xfce4-panel
-exec notify-send -i package_applications "$(xbps-install -M -n -u | wc -l) packages to be updated 📦"
+exec_always xfce4-screensaver
+exec_always xfce4-power-manager
+exec_always flameshot
+exec notify-send -i mx-packageinstaller "$(xbps-install -M -n -u | wc -l) packages to be updated 📦"
 
 # scratchpads
 bindsym $mod+Shift+minus move scratchpad
@@ -260,8 +278,8 @@ for_window [title="meet.google.com is sharing your screen"] move scratchpad; exe
 for_window [title="meet.google.com is sharing a window"] move scratchpad; exec notify-send -i "google-meet" "Google Meet is sharing your screen"
 
 # polybar
-#bar {
-  # i3bar_command ~/.config/polybar/launch.sh
+# bar {
+#   i3bar_command ~/.config/polybar/launch.sh
 #}
 
 # startup audio

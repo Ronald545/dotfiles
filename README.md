@@ -8,6 +8,7 @@ refer to [guide](./INSTALL.md)
 ![desktop](./screenshots/desktop.png)
 ![neofetch](./screenshots/neofetch.png)
 ![neovim](./screenshots/neovim.png)
+![gruvbox](./screenshots/gruvbox.png)
 
 ### Wallpapers
 ![wallpaper](./wallpapers/void.jpg)
